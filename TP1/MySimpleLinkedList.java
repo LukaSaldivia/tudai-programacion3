@@ -48,7 +48,7 @@ public class MySimpleLinkedList<T> implements Iterable<T> {
 
 	public static <T extends Comparable<T>> void sort2(MySimpleLinkedList<T> list) {
 		int listLength = list.size();
-		MySimpleLinkedList<T> sorted = new MySimpleLinkedList<T>(), copy = new MySimpleLinkedList<T>(list);
+		MySimpleLinkedList<T> sorted = new MySimpleLinkedList<T>();
 
 
 		if (listLength <= 0)
@@ -56,22 +56,22 @@ public class MySimpleLinkedList<T> implements Iterable<T> {
 
 		int i = 0;
 
-		T max = copy.getFirst();
+		T max = list.getFirst();
 
 		while (i < listLength) {
 
 			
-			T info = copy.get(i);
+			T info = list.get(i);
 
 			if (max.compareTo(info) < 0) {
 				max = info;
 			}
 
 			if (i == listLength - 1) {
-				sorted.insertFront(copy.remove(max));
+				sorted.insertFront(list.remove(max));
 				listLength--;
 				if (listLength > 0) {
-					max = copy.getFirst();
+					max = list.getFirst();
 				}
 				i = 0;
 			} else {
@@ -79,8 +79,6 @@ public class MySimpleLinkedList<T> implements Iterable<T> {
 			}
 
 		}
-
-		list.clear();
 
 		list.addAll(sorted);
 
@@ -241,10 +239,6 @@ public class MySimpleLinkedList<T> implements Iterable<T> {
 
 		@Override
 		public T next() {
-			if (!hasNext()) {
-				throw new NoSuchElementException();
-			}
-
 			T info = current.getInfo();
 			current = current.getNext();
 			return info;
