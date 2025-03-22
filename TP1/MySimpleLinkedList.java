@@ -1,6 +1,4 @@
 import java.util.Iterator;
-import java.util.NoSuchElementException;
-
 public class MySimpleLinkedList<T> implements Iterable<T> {
 
 	private Node<T> first;
