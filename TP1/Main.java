@@ -195,12 +195,13 @@ public class Main {
           res.insertFront(t);
           break;
         }
+        
+        boolean equals = firstReference.equals(t);
+        firstReference = iterator2.next();
 
-        if (firstReference.equals(t)) {
-          firstReference = iterator2.next();
+        if (equals) {
           break;
         }
-        firstReference = iterator2.next();
         
       }
 
