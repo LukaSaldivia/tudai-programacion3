@@ -15,12 +15,11 @@ public class Main {
     // tree.add(12);
     tree.add(11);
 
-    
+    Integer K = 6;    
       
     System.out.println(tree);
-    System.out.println(tree.getHeight());
 
-    System.out.println(tree.getElemAtLevel(3));
+    System.out.println(tree.getLeafsGreaterThan(K));
 
 
   }

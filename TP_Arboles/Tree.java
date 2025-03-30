@@ -274,6 +274,46 @@ public class Tree {
 
   }
 
+
+  public int getTotalSum(){
+    return getTotalSum(root);
+  }
+
+  private int getTotalSum(TreeNode actual){
+    if (actual == null) {
+      return 0;
+    }
+
+    return getTotalSum(actual.getRight()) + getTotalSum(actual.getLeft()) + actual.getValue();
+  }
+
+  public ArrayList<Integer> getLeafsGreaterThan(Integer K){
+    ArrayList<Integer> res = new ArrayList<Integer>();
+    res.addAll(getLeafsGreaterThan(root, K));
+    return res;
+  }
+  
+  private ArrayList<Integer> getLeafsGreaterThan(TreeNode actual, Integer K){
+    ArrayList<Integer> res = new ArrayList<Integer>();
+
+    if (actual == null) {
+      return res;
+    }
+
+    if (actual.getRight() == null && actual.getLeft() == null && actual.getValue() > K) {
+      res.add(actual.getValue());
+
+      return res;
+    }
+
+    res.addAll(getLeafsGreaterThan(actual.getLeft(), K));
+    res.addAll(getLeafsGreaterThan(actual.getRight(), K));
+
+    return res;
+  }
+
+
+
   @Override
   public String toString() {
       if (root == null) return "Árbol vacío";
