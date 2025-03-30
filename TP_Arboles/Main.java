@@ -11,11 +11,12 @@ public class Main {
     tree.add(8);
     tree.add(7);
     tree.add(9);
-    // tree.add(19);
-    // tree.add(12);
+    tree.add(19);
+    tree.add(12);
     tree.add(11);
+    tree.add(5);
 
-    Integer K = 6;    
+    Integer K = 8;    
       
     System.out.println(tree);
 

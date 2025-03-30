@@ -103,6 +103,7 @@ public class Tree {
         return actual.getLeft();
       }
 
+      // tiene dos nodos
       TreeNode nuevo = getMinNode(actual.getRight());
       actual.setValue(nuevo.getValue());
       actual.setRight(delete(actual.getRight(), nuevo.getValue()));
