@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Tree {
 
-  private TreeNode root;
+  private TreeNode<Integer> root;
 
   public Tree() {
     this.root = null;
@@ -10,17 +10,17 @@ public class Tree {
 
   public void add(Integer value) {
     if (this.root == null)
-      this.root = new TreeNode(value);
+      this.root = new TreeNode<Integer>(value);
     else
       this.add(this.root, value);
   }
 
-  private void add(TreeNode actual, Integer value) {
+  private void add(TreeNode<Integer> actual, Integer value) {
 
     if (actual.getValue() > value) {
 
       if (actual.getLeft() == null) {
-        actual.setLeft(new TreeNode(value));
+        actual.setLeft(new TreeNode<Integer>(value));
         return;
       }
 
@@ -31,7 +31,7 @@ public class Tree {
     if (actual.getValue() < value) {
 
       if (actual.getRight() == null) {
-        actual.setRight(new TreeNode(value));
+        actual.setRight(new TreeNode<Integer>(value));
         return;
       }
 
@@ -53,7 +53,7 @@ public class Tree {
     return hasElem(root, value);
   }
 
-  private boolean hasElem(TreeNode actual, Integer value) {
+  private boolean hasElem(TreeNode<Integer> actual, Integer value) {
 
     if (actual == null) {
       return false;
@@ -71,7 +71,7 @@ public class Tree {
   }
 
   public boolean delete(Integer value) {
-    if (isEmpty()) {
+    if (isEmpty() || !hasElem(value)) {
       return false;
     }
 
@@ -79,7 +79,7 @@ public class Tree {
     return true;
   }
 
-  private TreeNode delete(TreeNode actual, Integer value) {
+  private TreeNode<Integer> delete(TreeNode<Integer> actual, Integer value) {
     if (actual == null) {
       return null;
     }
@@ -104,7 +104,7 @@ public class Tree {
       }
 
       // tiene dos nodos
-      TreeNode nuevo = getMinNode(actual.getRight());
+      TreeNode<Integer> nuevo = getMinNode(actual.getRight());
       actual.setValue(nuevo.getValue());
       actual.setRight(delete(actual.getRight(), nuevo.getValue()));
 
@@ -113,7 +113,7 @@ public class Tree {
     return actual;
   }
 
-  private TreeNode getMinNode(TreeNode start) {
+  private TreeNode<Integer> getMinNode(TreeNode<Integer> start) {
     if (start.getLeft() == null) {
       return start;
     }
@@ -121,7 +121,7 @@ public class Tree {
     return getMinNode(start.getLeft());
   }
 
-  private TreeNode getMaxNode(TreeNode start) {
+  private TreeNode<Integer> getMaxNode(TreeNode<Integer> start) {
     if (start.getRight() == null) {
       return start;
     }
@@ -133,7 +133,7 @@ public class Tree {
     return getHeight(root) - 1;
   }
 
-  private int getHeight(TreeNode actual) {
+  private int getHeight(TreeNode<Integer> actual) {
     int sumLeft = 1, sumRight = 1;
 
     if (actual.getLeft() != null) {
@@ -154,7 +154,7 @@ public class Tree {
     printPreOrder(root);
   }
 
-  private void printPreOrder(TreeNode actual){
+  private void printPreOrder(TreeNode<Integer> actual){
     if (actual == null) {
       return;
     }
@@ -168,7 +168,7 @@ public class Tree {
     printPosOrder(root);
   }
 
-  private void printPosOrder(TreeNode actual){
+  private void printPosOrder(TreeNode<Integer> actual){
     if (actual == null) {
       return;
     }
@@ -182,7 +182,7 @@ public class Tree {
     printInOrder(root);
   }
 
-  private void printInOrder(TreeNode actual){
+  private void printInOrder(TreeNode<Integer> actual){
     if (actual == null) {
       return;
     }
@@ -202,7 +202,7 @@ public class Tree {
     return res;
   }
 
-  private void getFrontera(TreeNode actual, ArrayList<Integer> acc){
+  private void getFrontera(TreeNode<Integer> actual, ArrayList<Integer> acc){
     if (actual.getRight() == null && actual.getLeft() == null) {
       acc.add(actual.getValue());
       return;
@@ -217,7 +217,7 @@ public class Tree {
     return getLongestBranch(root);
   }
 
-  private ArrayList<Integer> getLongestBranch(TreeNode actual){
+  private ArrayList<Integer> getLongestBranch(TreeNode<Integer> actual){
 
     if (actual == null) {
       return new ArrayList<Integer>();
@@ -251,7 +251,7 @@ public class Tree {
     
   }
 
-  private ArrayList<Integer> getElemAtLevel(TreeNode actual, int level){
+  private ArrayList<Integer> getElemAtLevel(TreeNode<Integer> actual, int level){
 
     ArrayList<Integer> res = new ArrayList<Integer>();
 
@@ -280,7 +280,7 @@ public class Tree {
     return getTotalSum(root);
   }
 
-  private int getTotalSum(TreeNode actual){
+  private int getTotalSum(TreeNode<Integer> actual){
     if (actual == null) {
       return 0;
     }
@@ -294,7 +294,7 @@ public class Tree {
     return res;
   }
   
-  private ArrayList<Integer> getLeafsGreaterThan(TreeNode actual, Integer K){
+  private ArrayList<Integer> getLeafsGreaterThan(TreeNode<Integer> actual, Integer K){
     ArrayList<Integer> res = new ArrayList<Integer>();
 
     if (actual == null) {
@@ -321,7 +321,7 @@ public class Tree {
       return buildTreeString(root, "", false);
   }
   
-  private String buildTreeString(TreeNode nodo, String prefix, boolean isTail) {
+  private String buildTreeString(TreeNode<Integer> nodo, String prefix, boolean isTail) {
       if (nodo == null) return "";
   
       StringBuilder builder = new StringBuilder();
