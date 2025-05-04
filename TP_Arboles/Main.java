@@ -11,16 +11,22 @@ public class Main {
     tree.add(8);
     tree.add(7);
     tree.add(9);
-    tree.add(19);
+    tree.add(3);
     tree.add(12);
     tree.add(11);
     tree.add(5);
 
-    // Integer K = 8;    
+    Integer K = 0;    
       
-    // System.out.println(tree);
+    System.out.println(tree);
 
-    // System.out.println(tree.getLeafsGreaterThan(K));
+    System.out.println("Elementos en el nivel 2: "+tree.getElemAtLevel(2));
+
+    System.out.println("Suma total: "+tree.getTotalSum());
+
+    System.out.println("Rama más larga: "+tree.getLongestBranch());
+
+    System.out.println("Hojas más grandes que "+K+": "+tree.getLeafsGreaterThan(K));
 
     UnorderedTreeInteger unI = new UnorderedTreeInteger();
 
@@ -45,11 +51,11 @@ public class Main {
     .goRight()
     .setValue(20);
 
-    // System.out.println(unI);
+    System.out.println(unI);
 
     unI.fillNullishNodes();
 
-    // System.out.println(unI);
+    System.out.println(unI);
 
 
     UnorderedTreeChar unC = new UnorderedTreeChar();
@@ -92,7 +98,7 @@ public class Main {
     .setValue('U')
     .goLeft()
     .setValue('K')
-    .goRight()
+    .goLeft()
     .setValue('A')
     .goRoot()
     .goLeft()
@@ -118,7 +124,7 @@ public class Main {
 
     System.out.println(arbolL);
 
-    System.out.println(arbolL.getWords(2));
+    System.out.println(arbolL.getWords(3));
 
   }
 }
