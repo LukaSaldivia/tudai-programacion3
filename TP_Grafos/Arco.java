@@ -5,36 +5,46 @@
  */
 public class Arco<T> {
 
-	private int verticeOrigen;
-	private int verticeDestino;
-	private T etiqueta;
+  private int verticeOrigen;
+  private int verticeDestino;
+  private T etiqueta;
 
-	public Arco(int verticeOrigen, int verticeDestino, T etiqueta) {
-		this.verticeOrigen = verticeOrigen;
-		this.verticeDestino = verticeDestino;
-		this.etiqueta = etiqueta;
-	}
-	
-	public int getVerticeOrigen() {
-		return verticeOrigen;
-	}
-	
-	public int getVerticeDestino() {
-		return verticeDestino;
-	}
+  public Arco(int verticeOrigen, int verticeDestino, T etiqueta) {
+    this.verticeOrigen = verticeOrigen;
+    this.verticeDestino = verticeDestino;
+    this.etiqueta = etiqueta;
+  }
 
-	public T getEtiqueta() {
-		return etiqueta;
-	}
+  public Arco(Arco<T> arco) {
+    this(arco.getVerticeOrigen(), arco.getVerticeDestino(), arco.getEtiqueta());
+  }
 
-	@Override
-	public boolean equals(Object o){
-		try {
-			Arco<T> other = (Arco<T>) o;
-			return other.getVerticeDestino() == getVerticeDestino() && other.verticeOrigen == getVerticeOrigen();
-		} catch (Exception e) {
-			return false;
-		}
-	}
+  public int getVerticeOrigen() {
+    return verticeOrigen;
+  }
+
+  public int getVerticeDestino() {
+    return verticeDestino;
+  }
+
+  public T getEtiqueta() {
+    return etiqueta;
+  }
+
+  @Override
+  public int hashCode() {
+    // Cantor: ((a + b) * (a + b + 1)) / 2 + b;
+    return ((verticeOrigen + verticeDestino) * (verticeOrigen + verticeDestino + 1)) / 2 + verticeDestino;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    try {
+      Arco<T> other = (Arco<T>) o;
+      return other.getVerticeDestino() == getVerticeDestino() && other.verticeOrigen == getVerticeOrigen();
+    } catch (Exception e) {
+      return false;
+    }
+  }
 
 }
