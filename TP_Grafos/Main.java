@@ -86,9 +86,9 @@ public class Main {
 		cuadernillo.agregarArco(3, 4, null);
 		cuadernillo.agregarArco(3, j, null);
 
-		LinkedList<Integer> recorrido = LongestRoad.run(cuadernillo, i, j);
+		LinkedList<Integer> recorrido = LongestRoad.run(cuadernillo, 3, j);
 
-		// System.out.println(recorrido);
+		System.out.println(recorrido);
 
 		LinkedList<Integer> posiblesIniciosA = ExistingRoads.run(cuadernillo, 4);
 

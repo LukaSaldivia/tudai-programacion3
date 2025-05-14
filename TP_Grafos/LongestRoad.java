@@ -5,9 +5,9 @@ public class LongestRoad {
 
   public static <T> LinkedList<Integer> run(GrafoDirigido<T> G, int i, int j){
     LinkedList<Integer> res = new LinkedList<>(), longest = new LinkedList<>();
+    res.add(i);
 
     if (visit(G, res, longest, i, j, false)){
-      longest.addFirst(i);
       return longest;
     }
 
