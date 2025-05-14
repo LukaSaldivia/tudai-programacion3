@@ -16,6 +16,28 @@ public class Main {
 		Float etiqueta = grafito.obtenerArco(1, 2).getEtiqueta();
 		
 		System.out.println(etiqueta); // Debería imprimir 3
+
+		GrafoDirigido<String> grafo = new GrafoDirigido<>();
+
+		grafo.agregarVertice(1); // D
+		grafo.agregarVertice(2); // B
+		grafo.agregarVertice(3); // C
+		grafo.agregarVertice(4); // H
+		grafo.agregarVertice(5); // R
+		grafo.agregarVertice(6); // A
+		grafo.agregarVertice(7); // T
+
+		grafo.agregarArco(1, 3, null);
+		grafo.agregarArco(1, 2, null);
+		grafo.agregarArco(2, 4, null);
+		grafo.agregarArco(3, 5, null);
+		grafo.agregarArco(5, 4, null);
+		grafo.agregarArco(4, 6, null);
+		grafo.agregarArco(4, 7, null);
+
+		System.out.println(DFS.run(grafito));
+
+		System.out.println(BFS.run(grafo));
 	}
 
 }

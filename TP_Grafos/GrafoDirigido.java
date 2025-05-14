@@ -6,7 +6,6 @@ import java.util.List;
 public class GrafoDirigido<T> implements Grafo<T> {
 
 	HashMap<Integer, Vertice<T>> vertices = new HashMap<>();
-
 	@Override
 	public void agregarVertice(int verticeId) {
 		vertices.put(verticeId, new Vertice<T>(verticeId));
@@ -15,6 +14,12 @@ public class GrafoDirigido<T> implements Grafo<T> {
 	@Override
 	public void borrarVertice(int verticeId) {
 		vertices.remove(verticeId);
+
+		Iterator<Integer> it = obtenerVertices();
+
+		while (it.hasNext()) {
+			getVertice(it.next()).borrarArco(verticeId);
+		}
 	}
 
 	@Override

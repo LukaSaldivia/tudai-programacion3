@@ -5,7 +5,8 @@ import java.util.List;
 
 public class Vertice<T> {
 
-  int id;
+  int id, tiempoInicial, tiempoFinal;
+  char color;
 
   HashSet<Arco<T>> arcos = new HashSet<>();
 
@@ -72,6 +73,29 @@ public class Vertice<T> {
 
   public int getId() {
     return id;
+  }
+
+  public char getColor() {
+    return color;
+  }
+
+  public void setColor(char color) {
+    this.color = color;
+  }
+
+  public void setTiempoInicial(int tiempoInicial) {
+    this.tiempoInicial = tiempoInicial;
+  }
+
+  public void setTiempoFinal(int tiempoFinal) {
+    this.tiempoFinal = tiempoFinal;
+  }
+
+
+
+  @Override
+  public String toString(){
+    return "ID: "+getId();
   }
 
 }
