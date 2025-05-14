@@ -15,7 +15,7 @@ public class Main {
 		// Obtengo el arco entre 1 y 2, y le pido la etiqueta
 		Float etiqueta = grafito.obtenerArco(1, 2).getEtiqueta();
 		
-		System.out.println(etiqueta); // Debería imprimir 3
+		// System.out.println(etiqueta); // Debería imprimir 3
 
 		GrafoDirigido<String> grafo = new GrafoDirigido<>();
 
@@ -35,9 +35,20 @@ public class Main {
 		grafo.agregarArco(4, 6, null);
 		grafo.agregarArco(4, 7, null);
 
-		System.out.println(DFS.run(grafito));
+		// System.out.println(DFS.run(grafito));
 
-		System.out.println(BFS.run(grafo));
+		// System.out.println(BFS.run(grafo));
+
+		System.out.println(IsCiclic.run(grafito));
+		System.out.println(IsCiclic.run(grafo));
+
+		GrafoNoDirigido<Float> noDirigido = new GrafoNoDirigido<>();
+
+		noDirigido.agregarVertice(1);
+		noDirigido.agregarVertice(2);
+		noDirigido.agregarArco(1, 2, null);
+
+		System.out.println(IsCiclic.run(noDirigido));
 	}
 
 }

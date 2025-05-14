@@ -34,7 +34,6 @@ public class BFS {
   private static <T> void visit(Vertice<T> u, GrafoDirigido<T> G) {
     u.setColor('N');
     fila.add(u.getId());
-    System.out.println(fila);
 
     int nivelActual = 1;
     int siguienteNivel = 0;
@@ -57,7 +56,6 @@ public class BFS {
       }
 
       if (siguienteNivel > 0) {
-        System.out.println(fila);
         niveles++;
         nivelActual = siguienteNivel;
         siguienteNivel = 0;
