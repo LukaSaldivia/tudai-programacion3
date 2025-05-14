@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -49,6 +52,45 @@ public class Main {
 		noDirigido.agregarArco(1, 2, null);
 
 		System.out.println(IsCiclic.run(noDirigido));
+
+		GrafoDirigido<Integer> inconexo = new GrafoDirigido<>();
+
+		inconexo.agregarVertice(1);
+		inconexo.agregarVertice(2);
+		inconexo.agregarVertice(3);
+
+		inconexo.agregarArco(2, 3, null);
+		inconexo.agregarArco(3, 2, null);
+
+		System.out.println(IsCiclic.run(inconexo));
+
+		System.out.println(LongestRoad.run(inconexo, 1, 2));
+
+		GrafoDirigido<Integer> cuadernillo = new GrafoDirigido<>();
+
+		int i = 9, j = 10;
+
+		cuadernillo.agregarVertice(i);
+		cuadernillo.agregarVertice(j);
+
+		cuadernillo.agregarVertice(2);
+		cuadernillo.agregarVertice(3);
+		cuadernillo.agregarVertice(4);
+		cuadernillo.agregarVertice(5);
+
+		cuadernillo.agregarArco(i, 2, null);
+		cuadernillo.agregarArco(i, 3, null);
+		cuadernillo.agregarArco(2, 4, null);
+		cuadernillo.agregarArco(4, 5, null);
+		cuadernillo.agregarArco(5, 3, null);
+		cuadernillo.agregarArco(3, 4, null);
+		cuadernillo.agregarArco(3, j, null);
+
+		LinkedList<Integer> recorrido = LongestRoad.run(cuadernillo, i, j);
+
+		System.out.println(recorrido);
+
+
 	}
 
 }

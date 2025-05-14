@@ -29,6 +29,7 @@ public class IsCiclic {
 
 		while (it.hasNext()) {
 			Vertice<T> v = G.getVertice(it.next());
+
       if (v.getColor() != 'N') {
         return (v.getColor() == 'A') || visit(v, G);
       }
