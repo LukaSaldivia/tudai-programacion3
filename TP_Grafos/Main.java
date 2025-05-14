@@ -88,7 +88,11 @@ public class Main {
 
 		LinkedList<Integer> recorrido = LongestRoad.run(cuadernillo, i, j);
 
-		System.out.println(recorrido);
+		// System.out.println(recorrido);
+
+		LinkedList<Integer> posiblesIniciosA = ExistingRoads.run(cuadernillo, 4);
+
+		System.out.println(posiblesIniciosA);
 
 
 	}

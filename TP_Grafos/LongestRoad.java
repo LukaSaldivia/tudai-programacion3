@@ -19,13 +19,9 @@ public class LongestRoad {
 
     if (currentId == targetId) {
       found = true;
-      System.out.println("holis");
-      System.out.println(currentRoad);
       if (currentRoad.size() > longestRoad.size()) {
-        System.out.println("chau");
         longestRoad.clear();
         longestRoad.addAll(currentRoad);
-        System.out.println(longestRoad);
       }
     }else{
       for(Iterator<Integer> it = G.obtenerAdyacentes(currentId); it.hasNext();){
