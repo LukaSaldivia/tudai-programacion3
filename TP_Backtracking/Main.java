@@ -52,17 +52,17 @@ public class Main {
     mansion.agregarArco(9, 4, null);
     mansion.agregarArco(9, 8, null);
 
-    // System.out.println(Ejer1.run(mansion, 1, 10));
+    System.out.println(Ejer1.run(mansion, 1, 10));
 
     PorcionLaberinto[][] laberinto = {
       {new PorcionLaberinto(1, false, true, false, false), new PorcionLaberinto(6, false, false, true, false), new PorcionLaberinto(1, false, true, true, true), new PorcionLaberinto(8, false, true, false, true)},
 
-      {new PorcionLaberinto(2, true, true, true, false), new PorcionLaberinto(5, false, true, true, true), new PorcionLaberinto(2, true, false, false, false), new PorcionLaberinto(2, true, true, false, false)},
+      {new PorcionLaberinto(2, true, true, true, false), new PorcionLaberinto(5, false, true, true, true), new PorcionLaberinto(2, true, false, false, true), new PorcionLaberinto(2, true, true, false, false)},
 
       {new PorcionLaberinto(5, true, false, false, false), new PorcionLaberinto(3, true, false, true, false), new PorcionLaberinto(5, false, false, true, true), new PorcionLaberinto(8, true, false, false, true)}
     };
 
-    System.out.println("shortest: "+Ejer2.run(laberinto, 1, 3, 1, 1));
+    System.out.println("shortest: "+Ejer2.run(laberinto, 2, 0, 0, 2));
 
 
   }

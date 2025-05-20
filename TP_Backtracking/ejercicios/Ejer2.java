@@ -22,7 +22,6 @@ public class Ejer2 {
 
     backtracking(partial, shortest, i1, j1, i2, j2, laberinto);
 
-
     return shortest;
   }
 
@@ -30,15 +29,20 @@ public class Ejer2 {
       int currentI, int currentJ,
       int targetI, int targetJ, PorcionLaberinto[][] laberinto) {
 
-        System.out.println(partial);
+    System.out.println(partial);
+
+    int partialSum = sum(partial), shortestSum = sum(shortest);
+    System.out.println(partialSum + " " + shortestSum);
+
+    if (partialSum > shortestSum && shortestSum > 0)
+      return;
 
     if (currentI == targetI && currentJ == targetJ) {
-      if (sum(partial) < sum(shortest) || shortest.size() == 0) {
-        shortest.clear();
-        shortest.addAll(partial);
-
+      if (partialSum >= shortestSum && shortest.size() > 0)
         return;
-      }
+
+      shortest.clear();
+      shortest.addAll(partial);
     } else {
 
       if (currentJ - 1 >= 0) {

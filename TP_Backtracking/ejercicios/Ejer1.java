@@ -21,7 +21,7 @@ public class Ejer1 {
       return longest;
     }
 
-    return new LinkedList<Integer>();
+    return null;
   }
 
   private static <T> boolean backtracking(GrafoDirigido<T> G, LinkedList<Integer> currentRoad, LinkedList<Integer> longestRoad,
