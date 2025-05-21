@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+
 import ejercicios.Ejer1;
 import ejercicios.Ejer2;
+import ejercicios.Ejer3;
+import ejercicios.Ejer4;
 import grafo.*;
 import misc.*;
 
@@ -63,6 +67,15 @@ public class Main {
     };
 
     System.out.println("shortest: "+Ejer2.run(laberinto, 2, 0, 0, 2));
+
+    Integer[] conjunto = {7, 6, 2, 1};
+
+    // System.out.println(Ejer3.run(conjunto, 10));
+
+    ArrayList<Integer>[] res = Ejer4.run(conjunto);
+    for (int i = 0; i < res.length; i++) {
+      System.out.println(res[i]);
+    }
 
 
   }
